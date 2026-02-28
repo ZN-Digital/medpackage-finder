@@ -1,37 +1,37 @@
 import { useState, useMemo } from 'react'
-import Fuse from 'fuse.js'
 import DataTable from './components/DataTable'
 import data from './data.json'
 
-const fuseOptions = {
-  includeScore: true,
-  threshold: 0.4,
-  ignoreLocation: true,
-  keys: [
-    { name: 'AB PM - JAY Package Name', weight: 2 },
-    { name: 'AB PM - JAY Procedure Name', weight: 2 },
-    { name: 'Package Code HBP 2.2', weight: 1.5 },
-    { name: 'Procedure Code HBP 2.2', weight: 1.5 },
-    { name: 'Specialty', weight: 1.5 },
-    { name: 'Specialty Code HBP 2.0', weight: 1 },
-    { name: 'Procedure Code HBP 1.0', weight: 1 },
-    { name: 'Package Price', weight: 0.5 },
-    { name: 'LOS', weight: 0.5 },
-  ],
-}
+const searchableFields = [
+  'AB PM - JAY Package Name',
+  'AB PM - JAY Procedure Name',
+  'Package Code HBP 2.2',
+  'Procedure Code HBP 2.2',
+  'Specialty',
+  'Specialty Code HBP 2.0',
+  'Procedure Code HBP 1.0',
+  'Package Price',
+  'LOS',
+]
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('')
 
-  const fuse = useMemo(() => new Fuse(data, fuseOptions), [])
-
   const filteredData = useMemo(() => {
-    if (!searchQuery.trim()) {
+    const normalizedQuery = searchQuery.trim().toLowerCase()
+
+    if (!normalizedQuery) {
       return data
     }
-    const results = fuse.search(searchQuery)
-    return results.map((result) => result.item)
-  }, [searchQuery, fuse])
+
+    return data.filter((item) =>
+      searchableFields.some((field) =>
+        String(item[field] ?? '')
+          .toLowerCase()
+          .includes(normalizedQuery)
+      )
+    )
+  }, [searchQuery])
 
   return (
     <div className="min-h-screen bg-gray-50">
