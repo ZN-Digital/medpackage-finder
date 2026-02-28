@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .search-input {
+    @apply w-full px-6 py-4 text-lg border-2 border-hospital-200 rounded-xl 
+           focus:outline-none focus:ring-4 focus:ring-hospital-100 focus:border-hospital-400
+           placeholder-gray-400 transition-all duration-200 shadow-sm;
+  }
+  
+  .table-header {
+    @apply bg-hospital-600 text-white font-semibold text-left px-4 py-3 
+           cursor-pointer select-none hover:bg-hospital-700 transition-colors
+           text-sm uppercase tracking-wide;
+  }
+  
+  .table-cell {
+    @apply px-4 py-3 text-sm text-gray-700 border-b border-gray-100;
+  }
+  
+  .table-row {
+    @apply bg-white hover:bg-hospital-50 transition-colors cursor-pointer;
+  }
+  
+  .table-row-expanded {
+    @apply bg-hospital-50;
+  }
+  
+  .pagination-btn {
+    @apply px-4 py-2 rounded-lg border border-gray-200 bg-white text-gray-700
+           hover:bg-hospital-50 hover:border-hospital-300 disabled:opacity-50 
+           disabled:cursor-not-allowed transition-all duration-150 text-sm font-medium;
+  }
+  
+  .pagination-btn-active {
+    @apply bg-hospital-600 text-white border-hospital-600 hover:bg-hospital-700;
+  }
+  
+  .expand-panel {
+    @apply bg-gradient-to-r from-hospital-50 to-blue-50 px-6 py-4 border-b-2 border-hospital-200;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-yes {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .badge-no {
+    @apply bg-gray-100 text-gray-600;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.hospital.300') transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.hospital.300');
+    border-radius: 4px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.hospital.400');
+  }
+}
