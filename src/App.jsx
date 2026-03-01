@@ -169,7 +169,7 @@ function App() {
       {/* Footer */}
       <footer className="mt-8 pb-6">
         <p className="text-center text-xs text-gray-400">
-          MedPackage Finder • Hospital Internal Reference Tool • For authorized personnel only
+          C.G HBP 2.2 PACKAGE FINDER • Hospital Internal Reference Tool • For authorized personnel only
         </p>
       </footer>
     </div>

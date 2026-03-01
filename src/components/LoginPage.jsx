@@ -59,7 +59,7 @@ function LoginPage() {
               <Logo size="large" showText={true} />
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 tracking-tight mt-4">
-              MedPackage Finder
+              C.G HBP 2.2 PACKAGE FINDER
             </h1>
             <p className="mt-2 text-gray-500 text-sm">
               Hospital Internal Reference System

@@ -37,7 +37,7 @@ function Header() {
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <div className="text-center">
               <h1 className="text-2xl sm:text-3xl font-bold text-hospital-700 tracking-tight">
-                MedPackage Finder
+                C.G HBP 2.2 PACKAGE FINDER
               </h1>
               <p className="hidden sm:block mt-1 text-gray-500 text-sm">
                 Hospital Internal Reference Tool
